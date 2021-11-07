@@ -18,6 +18,24 @@ class Contact extends Component{
      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleInputChange(event){
+        const target = event.target;
+        const value = target.type === 'checkbox'? target.checked: target.value;
+        const name =  target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event){
+        console.log("The current state is " + JSON.stringify(this.state));
+        alert(this.state);
+        event.preventDefault();
+        
+        
+    }
+    
+
     render(){
         return(
             <div className="container">
@@ -26,13 +44,14 @@ class Contact extends Component{
                     <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
                     <BreadcrumbItem active>Contact Us</BreadcrumbItem>
                     </Breadcrumb>
-    
                 </div>
                 <div className="row row-content">
                     <div className="col-12">
                     <h3>Location Information</h3>
                     </div>
-                    <div className="col-12 col-sm-4 offset-sm-1">
+                    <p></p>
+                    
+                    <div className="col-12 col-sm-3 offset-sm-1">
                             <h5>Our Address</h5>
                             <address>
                             121, Clear Water Bay Road<br />
@@ -45,6 +64,9 @@ class Contact extends Component{
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
                         <h5>Map of our Location</h5>
+                        <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15226.547153589916!2d78.43456089393338!3d17.42920985982797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9736ec4570d1%3A0xf379a101b3fe1032!2sTaj%20Deccan!5e0!3m2!1sen!2sin!4v1636286783346!5m2!1sen!2sin"  title="tajdeccan" width="600" height="450"  allowfullscreen="" loading="lazy">Taj De</iframe>
+                        </div>
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
@@ -54,6 +76,95 @@ class Contact extends Component{
                         </div>
                     </div>
                 </div>
+                <div className="row row-content">
+                   <div className="col-12">
+                      <h3>Send us your Feedback</h3>
+                      <br/>
+                   </div>
+                    <div className="col-12 col-md-9">
+                        <Form onSubmit={this.handleSubmit}>
+                            <FormGroup row>
+                                <Label htmlFor="firstname" md={2}>First Name</Label>
+                                <Col md={10}>
+                                    <Input type="text" id="firstname" name="firstname"
+                                        placeholder="First Name"
+                                        value={this.state.firstname}
+                                        onChange={this.handleInputChange} />
+                                </Col>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Label htmlFor="lastname" md={2}>Last Name</Label>
+                                <Col md={10}>
+                                    <Input type="text" id="lastname" name="lastname"
+                                        placeholder="Last Name"
+                                        value={this.state.lastname}
+                                        onChange={this.handleInputChange} />
+                                </Col>                        
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                            <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
+                                <Col md={10}>
+                                    <Input type="tel" id="telnum" name="telnum"
+                                        placeholder="Tel. number"
+                                        value={this.state.telnum}
+                                        onChange={this.handleInputChange} />
+                                </Col>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Label htmlFor="email" md={2}>Email</Label>
+                                <Col md={10}>
+                                    <Input type="email" id="email" name="email"
+                                        placeholder="Email"
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange} />
+                                </Col>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Col md={{size: 6, offset: 2}}>
+                                    <FormGroup check>
+                                        <Label check>
+                                            <Input type="checkbox"
+                                                name="agree"
+                                                checked={this.state.agree}
+                                                onChange={this.handleInputChange} /> {' '}
+                                            <strong>May we contact you?</strong>
+                                        </Label>
+                                    </FormGroup>
+                                </Col>
+                                <Col md={{size: 3, offset: 1}}>
+                                    <Input type="select" name="contactType"
+                                            value={this.state.contactType}
+                                            onChange={this.handleInputChange}>
+                                        <option>Tel.</option>
+                                        <option>Email</option>
+                                    </Input>
+                                </Col>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Label htmlFor="message" md={2}>Your Feedback</Label>
+                                <Col md={10}>
+                                    <Input type="textarea" id="message" name="message"
+                                        rows="12"
+                                        value={this.state.message}
+                                        onChange={this.handleInputChange}></Input>
+                                </Col>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Col md={{size: 10, offset: 2}}>
+                                    <Button type="submit" color="primary">
+                                        Send Feedback
+                                    </Button>
+                                </Col>
+                            </FormGroup>
+                        </Form>
+                    </div>
+               </div>
             </div>
 
         );
