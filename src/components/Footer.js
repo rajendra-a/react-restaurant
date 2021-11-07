@@ -18,11 +18,11 @@ function Footer(props) {
                 <div className="col-7 col-sm-5">
                     <h5>Our Address</h5>
                     <address>
-		              121, Clear Water Bay Road<br />
-		              Clear Water Bay, Kowloon<br />
-		              HONG KONG<br />
-		              <i className="fa fa-phone fa-lg"></i>: +852 1234 5678<br />
-		              <i className="fa fa-fax fa-lg"></i>: +852 8765 4321<br />
+		              E Floor, Hotel Taj Deccan<br />
+		              Road no 1  Balapur Basti, Banjara Hills<br />
+		              Hyderabad <br />
+		              <i className="fa fa-phone fa-lg"></i>: +91 9030427429<br />
+		              <i className="fa fa-fax fa-lg"></i>: +91 9030427429<br />
 		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:rajendrareddy.akkala@gmail.com">
                          rajendrareddy.akkala@gmail.com</a>
                     </address>
@@ -40,7 +40,7 @@ function Footer(props) {
             </div>
             <div className="row justify-content-center">             
                 <div className="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                    <p>© Copyright 2021 Restaurant </p>
                 </div>
             </div>
         </div>
