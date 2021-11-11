@@ -9,7 +9,7 @@ function About(props) {
             <div key={leader.id} className="col-12 mt-5">
                 <Media tag="unstyled">
                     <Media left>
-                        <Media object src={leader.image} alt={leader.name}/>
+                        <Media width='25%' object src={leader.image} alt={leader.name}/>
                     </Media>
                     <Media body>
                         <Media heading>{leader.name}</Media>
