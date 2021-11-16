@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../shared/dishes';
 
 
-function RenderMenuItem({ dish, onClick }) {
+function RenderMenuItem({ dish }) {
     return (
         
             <Card>
@@ -23,7 +23,7 @@ const Menu = (props) => {
     const menu = props.dishes.map((dish) => {
         return (
             <div className="col-6 mt-5" key={dish.id} >
-            <RenderMenuItem dish={dish} onClick={props.onClick} />
+            <RenderMenuItem dish={dish} />
             </div>
         );
     });
